@@ -33,7 +33,7 @@ int LinkedList<T>::size() const
 		Fix this method
 	*/
 	//check that it should actually start at 1 and not 0
-	int list_size = 1;
+	int list_size = 0;
 
 	Node<T>* temp = m_front;
 	while(temp != nullptr)
