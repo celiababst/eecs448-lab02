@@ -33,16 +33,16 @@ int LinkedList<T>::size() const
 		Fix this method
 	*/
 	//check that it should actually start at 1 and not 0
-	int list_size = 0;
+	int m_size = 0;
 
 	Node<T>* temp = m_front;
-	while(temp != nullptr)
+	while((temp->getNext()) != nullptr)
 	{
-		list_size = list_size + 1;
+		m_size = m_size + 1;
 		temp = temp->getNext();
 		//check this part as well
 	}
-	return(list_size-1);
+	return(m_size);
 }
 
 template <typename T>
@@ -117,16 +117,16 @@ bool LinkedList<T>::removeBack()
 	Node<T>* lastNode = nullptr;
 	Node<T>* secondintoLast = nullptr;
 	bool isRemoved = false;
-	int size = size();
 
 	secondintoLast = m_front;
 	lastNode = m_front->getNext();
-	for(int temp_size = 0; temp_size>size-1; temp_size++)
+	for(int temp_size = 0; temp_size>m_size; temp_size++)
 	{
 		lastNode=lastNode->getNext();
 		secondintoLast=secondintoLast->getNext();
 	}
 	secondintoLast->setNext() = nullptr;
+	delete lastNode->getValue();
 	delete lastNode;
 	isRemoved = true;
 
