@@ -42,7 +42,7 @@ int LinkedList<T>::size() const
 		temp = temp->getNext();
 		//check this part as well
 	}
-	return(list_size);
+	return(list_size-1);
 }
 
 template <typename T>
@@ -113,13 +113,22 @@ void LinkedList<T>::addFront(T value)
 template <typename T>
 bool LinkedList<T>::removeBack()
 {
+	//edited
 	Node<T>* lastNode = nullptr;
 	Node<T>* secondintoLast = nullptr;
 	bool isRemoved = false;
+	int size = size();
 
-	/** TODO
-		Fix this method
-	*/
+	secondintoLast = m_front;
+	lastNode = m_front->getNext();
+	for(int temp_size = 0; temp_size>size-1; temp_size++)
+	{
+		lastNode=lastNode->getNext();
+		secondintoLast=secondintoLast->getNext();
+	}
+	secondintoLast->setNext() = nullptr;
+	delete lastNode;
+	isRemoved = true;
 
 	return(isRemoved);
 }
